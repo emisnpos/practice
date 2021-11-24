@@ -25,4 +25,7 @@ public class IntelligenceCenter {
         return null;
     }
 
+    public Set<SecretAgent> getAgents() {
+        return agents;
+    }
 }

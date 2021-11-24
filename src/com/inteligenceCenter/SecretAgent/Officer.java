@@ -22,13 +22,19 @@ public class Officer extends SecretAgent implements OfficersAndAgents{
         this.status = Status.ACTIVE;
     }
 
+
     public void addMissionToOfficer(Mission mission){
         this.missions.add(mission);
     }
 
     public void addAgents(Agent agent){
-        this.agents.add(agent);
-        // superior beállitás officernek adjuk meg az agentet
+        if(agent.getSuperior() == null || agent.getSuperior().equals(this)){
+            this.agents.add(agent);
+            System.out.println("hozzáadva");
+        }
+        else{
+            System.out.println("addAgent HIBA !!!");
+        }
     }
 
     public void controlAgent(Mission currentMission, Agent agent){
@@ -47,6 +53,7 @@ public class Officer extends SecretAgent implements OfficersAndAgents{
         }
     };
 
+
     @Override
     public void sendMessage() {
     }
@@ -58,17 +65,6 @@ public class Officer extends SecretAgent implements OfficersAndAgents{
 
     @Override
     public void setIntelligenceCenter() {
-
-
     }
 
-
-    @Override
-    public String toString() {
-        return "Officer{" +
-                "intelligenceCenter=" + intelligenceCenter +
-                ", missions=" + missions +
-                ", agents=" + agents +
-                '}';
-    }
 }

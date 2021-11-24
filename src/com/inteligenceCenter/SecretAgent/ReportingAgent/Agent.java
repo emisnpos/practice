@@ -12,15 +12,43 @@ import java.util.Set;
 public class Agent extends ReportingAgent implements OfficersAndAgents {
 
     private int numberOfLiquidate;
-    private boolean compromise;
+    private boolean compromised = false;
     private Set<Informer> informers = new HashSet<>();
     private IntelligenceCenter intelligenceCenter;
+    private boolean canRetire = false;
+
+
+    public void addInformer(Informer informer){
+        informers.add(informer);
+    }
 
     public Set<Informer> getInformers() {
         return informers;
     }
 
+    public boolean isCanRetire() {
+        return canRetire;
+    }
 
+    public void setCanRetire(boolean canRetire) {
+        this.canRetire = canRetire;
+    }
+
+    public int getNumberOfLiquidate() {
+        return numberOfLiquidate;
+    }
+
+    public void setNumberOfLiquidate(int numberOfLiquidate) {
+        this.numberOfLiquidate = numberOfLiquidate;
+    }
+
+    public boolean isCompromised() {
+        return compromised;
+    }
+
+    public void setCompromised(boolean compromised) {
+        this.compromised = compromised;
+    }
 
     public Agent(String alias, String name) {
         super(alias, name);
@@ -28,10 +56,34 @@ public class Agent extends ReportingAgent implements OfficersAndAgents {
 
     public void setSuperior(Officer officer) {
         this.superior = officer;
+        officer.addAgents(this);
 
     }
 
     public void liquidate(Agent agent){
+           if(agent.isCompromised()){
+               System.out.println(agent + " is dead.");
+                numberOfLiquidate += 1;
+                transferInformer(agent);
+           }
+    }
+
+    public void retire(){
+        if(numberOfLiquidate == 3){
+            setCanRetire(true);
+            System.out.println("Nyugdijba ment: ");
+        }
+        else {
+            System.out.println("retire HIBA!!!");
+        }
+    }
+
+    public void transferInformer(Agent agent){
+        Set <Informer> informersToTransfer = agent.getInformers();
+        for (Informer informer : informersToTransfer) {
+            informer.setSuperior(this);
+            informers.add(informer);
+        }
 
     }
 

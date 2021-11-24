@@ -1,7 +1,5 @@
 package com.inteligenceCenter.SecretAgent.ReportingAgent;
 
-import com.inteligenceCenter.SecretAgent.SecretAgent;
-
 public class Informer extends ReportingAgent{
 
     public Informer(String alias, String name) {
@@ -11,8 +9,11 @@ public class Informer extends ReportingAgent{
 
     public void setSuperior(Agent agent) {
         this.superior = agent;
-
+        agent.addInformer(this);
     }
+
+
+
 
 
 }
