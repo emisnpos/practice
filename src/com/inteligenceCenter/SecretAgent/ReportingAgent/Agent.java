@@ -3,8 +3,6 @@ package com.inteligenceCenter.SecretAgent.ReportingAgent;
 import com.inteligenceCenter.IntelligenceCenter;
 import com.inteligenceCenter.SecretAgent.Officer;
 import com.inteligenceCenter.SecretAgent.OfficersAndAgents;
-import com.inteligenceCenter.SecretAgent.SecretAgent;
-import com.inteligenceCenter.SecretAgent.Status;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,20 +24,8 @@ public class Agent extends ReportingAgent implements OfficersAndAgents {
         return informers;
     }
 
-    public boolean isCanRetire() {
-        return canRetire;
-    }
-
-    public void setCanRetire(boolean canRetire) {
-        this.canRetire = canRetire;
-    }
-
     public int getNumberOfLiquidate() {
         return numberOfLiquidate;
-    }
-
-    public void setNumberOfLiquidate(int numberOfLiquidate) {
-        this.numberOfLiquidate = numberOfLiquidate;
     }
 
     public boolean isCompromised() {
@@ -70,7 +56,7 @@ public class Agent extends ReportingAgent implements OfficersAndAgents {
 
     public void retire(){
         if(numberOfLiquidate == 3){
-            setCanRetire(true);
+            canRetire = true;
             System.out.println("Nyugdijba ment: ");
         }
         else {

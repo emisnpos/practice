@@ -78,9 +78,6 @@ public class Main {
 
 
 
-        System.out.println(Roli.toString());
-
-
 
 
 

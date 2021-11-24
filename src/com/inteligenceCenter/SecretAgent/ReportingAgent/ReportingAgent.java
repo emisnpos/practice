@@ -6,6 +6,7 @@ public abstract class ReportingAgent extends SecretAgent {
 
 
     protected SecretAgent superior;
+    //TO DO
     private String profession;
 
 

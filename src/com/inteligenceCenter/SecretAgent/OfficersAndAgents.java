@@ -1,10 +1,9 @@
 package com.inteligenceCenter.SecretAgent;
 
-import com.inteligenceCenter.IntelligenceCenter;
-
 public interface OfficersAndAgents {
 
 
+    // TO DO
     void sendMessage();
     void getAliases();
     void setIntelligenceCenter();

@@ -21,14 +21,17 @@ public class Mission {
         this.missionType = missionType;
     }
 
+    //To Do
     public MissionType getMissionType() {
         return missionType;
     }
 
+    //To Do
     public void setMissionType(MissionType missionType) {
         this.missionType = missionType;
     }
 
+    //To Do
     public void completAMission(){
         this.missionType = MissionType.COMPLETED;
         agent.setStatus(Status.INACTIVE);

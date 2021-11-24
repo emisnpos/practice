@@ -13,14 +13,19 @@ public class IntelligenceCenter {
         this.agents.add(secretAgent);
     };
 
+    //TO DO
     public void listCompletedMission(){};
 
+    //TO DO
     public void listInProgressOrOverDeadline(){};
 
+    //TO DO
     public void listAgentWhoGoRetirement(){};
 
+    //TO DO
     public void listMostWantedOfficer(){};
 
+    //TO DO
     public Set<String> getAllAliases(){
         return null;
     }
