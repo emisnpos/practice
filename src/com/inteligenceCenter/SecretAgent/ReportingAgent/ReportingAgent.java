@@ -10,9 +10,10 @@ public abstract class ReportingAgent extends SecretAgent {
     private String profession;
 
 
-    public ReportingAgent(String alias, String name) {
+    public ReportingAgent(String alias, String name, SecretAgent secretAgent) {
         super(alias, name);
         this.status = Status.INACTIVE;
+        this.superior = secretAgent;
     }
 
     public SecretAgent getSuperior() {

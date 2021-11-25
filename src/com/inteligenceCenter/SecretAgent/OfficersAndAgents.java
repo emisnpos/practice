@@ -7,4 +7,5 @@ public interface OfficersAndAgents {
     void sendMessage();
     void getAliases();
     void setIntelligenceCenter();
+
 }

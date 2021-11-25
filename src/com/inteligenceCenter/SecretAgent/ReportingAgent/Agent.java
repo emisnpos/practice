@@ -1,19 +1,28 @@
 package com.inteligenceCenter.SecretAgent.ReportingAgent;
 
 import com.inteligenceCenter.IntelligenceCenter;
+import com.inteligenceCenter.SecretAgent.Aliasprovider;
 import com.inteligenceCenter.SecretAgent.Officer;
 import com.inteligenceCenter.SecretAgent.OfficersAndAgents;
+import com.inteligenceCenter.SecretAgent.SecretAgent;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class Agent extends ReportingAgent implements OfficersAndAgents {
 
-    private int numberOfLiquidate;
+    private int numberOfLiquidate = 0;   // Eszter feedback
     private boolean compromised = false;
     private Set<Informer> informers = new HashSet<>();
-    private IntelligenceCenter intelligenceCenter;
+    private Aliasprovider intelligenceCenter;
     private boolean canRetire = false;
+
+    public Agent(String alias, String name, Officer officer, IntelligenceCenter intelligenceCenter) {
+        super(alias, name, officer);
+        officer.addAgents(this);
+        this.intelligenceCenter = intelligenceCenter;
+
+    }
 
 
     public void addInformer(Informer informer){
@@ -36,9 +45,6 @@ public class Agent extends ReportingAgent implements OfficersAndAgents {
         this.compromised = compromised;
     }
 
-    public Agent(String alias, String name) {
-        super(alias, name);
-    }
 
     public void setSuperior(Officer officer) {
         this.superior = officer;
