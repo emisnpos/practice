@@ -16,6 +16,10 @@ public abstract class SecretAgent {
         this.name = name;
     }
 
+    public String getAlias() {
+        return alias;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }
@@ -30,5 +34,9 @@ public abstract class SecretAgent {
                 '}';
     }
 
+    public void sendMessage(String message) {
+        System.out.println("Message to: " + alias + message);
 
+    }
 }
+

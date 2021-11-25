@@ -17,36 +17,33 @@ public class Main {
 
         Calendar calendar = new GregorianCalendar(2013,1,28,13,24,56);
 
-        Agent Roli = new Agent("Troll", "Fisher Roland");
-        intelligenceCenter.addAgent(Roli);
-
-        Agent Bond = new Agent("007", "James Bond");
-        intelligenceCenter.addAgent(Bond);
-
-        Informer Levente = new Informer("Szmoki", "Big Levente");
-        intelligenceCenter.addAgent(Levente);
-
-        Officer Bence = new Officer("emis","Tailor Bence");
+        Officer Bence = new Officer("emis","Tailor Bence", intelligenceCenter);
         intelligenceCenter.addAgent(Bence);
 
-        Officer SajtÚr = new Officer("Sajtyy", "Sajtos Pál");
+        Agent Roli = new Agent("Troll", "Fisher Roland", Bence, intelligenceCenter);
+        intelligenceCenter.addAgent(Roli);
+
+        Agent Bond = new Agent("007", "James Bond", Bence, intelligenceCenter);
+        intelligenceCenter.addAgent(Bond);
+
+        Informer Levente = new Informer("Szmoki", "Big Levente", Roli);
+        intelligenceCenter.addAgent(Levente);
+
+
+        Officer SajtÚr = new Officer("Sajtyy", "Sajtos Pál", intelligenceCenter);
         intelligenceCenter.addAgent(SajtÚr);
 
-        Agent Geroge = new Agent("006", "Smith George");
+        Agent Geroge = new Agent("006", "Smith George", Bence, intelligenceCenter);
         intelligenceCenter.addAgent(Geroge);
 
-        Agent Ferenc = new Agent("Ferike", "Kovács Ferenc");
+        Agent Ferenc = new Agent("Ferike", "Kovács Ferenc", Bence, intelligenceCenter);
         intelligenceCenter.addAgent(Ferenc);
 
-        Informer Patkány = new Informer("Rat", "Patkány Rat");
+        Informer Patkány = new Informer("Rat", "Patkány Rat", Bond);
         intelligenceCenter.addAgent(Patkány);
 
 
-        Roli.setSuperior(Bence);
-        Levente.setSuperior(Roli);
-
-        System.out.println(Roli.getInformers());
-        Patkány.setSuperior(Bond);
+        System.out.println(" roli informerei" + Roli.getInformers());
 
         System.out.println(intelligenceCenter.getAgents());
 
@@ -72,9 +69,14 @@ public class Main {
 
         System.out.println("masodik get" + Roli.getNumberOfLiquidate());
 
-        System.out.println(Roli.getInformers());
+        System.out.println("végső roli infoprmerei" + Roli.getInformers());
 
         Roli.retire();
+
+        Bence.getIntelligenceCenter().sendMessage("Troll"," Holnap D-day.");
+
+
+
 
 
 

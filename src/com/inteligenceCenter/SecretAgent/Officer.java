@@ -11,17 +11,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Officer extends SecretAgent implements OfficersAndAgents{
+public class Officer extends SecretAgent{
 
-    private IntelligenceCenter intelligenceCenter;
+    private Aliasprovider intelligenceCenter;
     private List<Mission> missions = new ArrayList<>();
     private Set<Agent> agents = new HashSet<>();
 
-    public Officer(String alias, String name) {
+    public Officer(String alias, String name, IntelligenceCenter intelligenceCenter) {
         super(alias, name);
         this.status = Status.ACTIVE;
+        this.intelligenceCenter = intelligenceCenter;
     }
 
+    public Aliasprovider getIntelligenceCenter() {
+        return intelligenceCenter;
+    }
 
     public void addMissionToOfficer(Mission mission){
         this.missions.add(mission);
@@ -53,18 +57,5 @@ public class Officer extends SecretAgent implements OfficersAndAgents{
         }
     };
 
-
-    @Override
-    public void sendMessage() {
-    }
-
-    @Override
-    public void getAliases() {
-
-    }
-
-    @Override
-    public void setIntelligenceCenter() {
-    }
 
 }
