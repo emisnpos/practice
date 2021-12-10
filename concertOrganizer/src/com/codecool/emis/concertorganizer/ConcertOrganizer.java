@@ -38,7 +38,15 @@ public class ConcertOrganizer {
         }
     }
 
+   public void printAllBandsWithWorkTogether(){
+       for (Band band : bands) {
+           System.out.println(band);
+       }
+   }
 
-
-
+   public void printAllConcerts(){
+       for (Concert concert : concerts) {
+           System.out.println(concert);
+       }
+   }
 }
