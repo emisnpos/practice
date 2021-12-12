@@ -15,4 +15,9 @@ public enum ConcertType {
         this.duration = duration;
         this.beerPrize = beerPrize;
     }
+
+
+    public int getBeerPrize() {
+        return beerPrize;
+    }
 }

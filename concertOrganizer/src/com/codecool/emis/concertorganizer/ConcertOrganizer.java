@@ -23,7 +23,19 @@ public class ConcertOrganizer {
     }
 
     public int getAllProfit(){
-        return 0;
+        int allProfit = 0;
+        for (Concert concert : concerts) {
+            allProfit += (concert.ticketProfit() * profitPrecentage + concert.beerProfit());
+        }
+       return allProfit;
+    }
+
+    public Set<Band> getBands() {
+        return bands;
+    }
+
+    public Set<Concert> getConcerts() {
+        return concerts;
     }
 
     public void cancelConcert(Concert concert){
@@ -38,7 +50,12 @@ public class ConcertOrganizer {
         }
     }
 
-   public void printAllBandsWithWorkTogether(){
+
+    public void setRaining(boolean raining) {
+        isRaining = raining;
+    }
+
+    public void printAllBandsWithWorkTogether(){
        for (Band band : bands) {
            System.out.println(band);
        }
