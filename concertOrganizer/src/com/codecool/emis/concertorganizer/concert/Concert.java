@@ -16,31 +16,45 @@ public class Concert {
     private static final int MIN_PRICE_FOR_TICKET = 12000;
 
 
-    public Concert(Band mainBand, ConcertType concertType, int ticketPrize) {
+    public Concert(Band mainBand, ConcertType concertType, int ticketPrize) throws Exception {
         this.mainBand = mainBand;
         this.style = mainBand.getStyle();
         this.concertType = concertType;
-        this.ticketPrize = ticketPriceRange(ticketPrize);
+        this.ticketPrize = checkTicketPrice(ticketPrize);
     }
 
 
-    public void sellTicket(){
+    public boolean checkMaxCapacity(){
+
+    }
+
+    public void increasedTicketNumber(){
         ticketNumber += 1;
     }
 
-    public int ticketProfit(){
+    public int getTicketProfit(){
         return ticketNumber * ticketPrize;
     }
 
-    public int ticketPriceRange(int price){
+    /*public int ticketPriceRange(int price) throws Exception{
         if(price >= MIN_PRICE_FOR_TICKET && price <= MAX_PRICE_FOR_TICKET){
             return price;
         }
-        else{
-            System.out.println("ez a koncert nem jó árat adott meg:" + this);
-        }
-       return 0;
+       throw new Exception("AZ ár nem megfelelő");
 
+    }
+    */
+
+
+    public int checkTicketPrice(int price) throws Exception{
+        if(isPriceValid(price)){
+            return price;
+        }
+        throw new Exception("AZ ár nem megfelelő");
+    }
+
+    public boolean isPriceValid(int price){
+       return( price >= MIN_PRICE_FOR_TICKET && price <= MAX_PRICE_FOR_TICKET);
     }
 
     public void sellBeer(){

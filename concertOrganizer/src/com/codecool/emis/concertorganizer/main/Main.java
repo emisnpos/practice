@@ -8,7 +8,7 @@ import com.codecool.emis.concertorganizer.concert.ConcertType;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         ConcertOrganizer concertOrganizer = new ConcertOrganizer();
 
@@ -65,17 +65,18 @@ public class Main {
         //System.out.println("This is firstConcert ticket profit: " + firstConcert.beerProfit());      //<--------------- this method calculate all beer profit
 
 
-        festival.sellTicket();
-        festival.sellTicket();
-        festival.sellTicket();
-        festival.sellTicket();
-        festival.sellTicket(); // 5 x 15000
+        festival.increasedTicketNumber();
+        festival.increasedTicketNumber();
+        festival.increasedTicketNumber();
+        festival.increasedTicketNumber();
+        festival.increasedTicketNumber();
 
-        firstConcert.sellTicket();
-        firstConcert.sellTicket();
-        firstConcert.sellTicket();
-        firstConcert.sellTicket();
-        firstConcert.sellTicket(); // 5 * 13000
+
+        firstConcert.increasedTicketNumber();
+        firstConcert.increasedTicketNumber();
+        firstConcert.increasedTicketNumber();
+        firstConcert.increasedTicketNumber();
+        firstConcert.increasedTicketNumber(); // 5 * 13000
 
         //System.out.println("This is festival ticket profit: " + festival.ticketProfit());
         //System.out.println("This is firstConcert ticket profit: " + firstConcert.ticketProfit());     //<---------------- this method calculate all ticket profit

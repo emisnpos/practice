@@ -25,7 +25,7 @@ public class ConcertOrganizer {
     public int getAllProfit(){
         int allProfit = 0;
         for (Concert concert : concerts) {
-            allProfit += (concert.ticketProfit() * profitPrecentage + concert.beerProfit());
+            allProfit += (concert.getTicketProfit() * profitPrecentage + concert.beerProfit());
         }
        return allProfit;
     }
