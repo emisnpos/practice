@@ -27,18 +27,6 @@ public class Blockbuster {
         return counter / products.size();
     }
 
-/*    public Set<Product> getBestBlockbusters(){
-        int averageRentTime = averageProduct();
-        for (Product product : products) {
-            if(product.getHowManyTimesRent() > averageRentTime){
-                blockBusters.add(product);
-            }
-        }
-        return blockBusters;
-    }*/
-
-
-
 
     private void setProductToBlockbuster(){
         int averageRentTime = averageProduct();
