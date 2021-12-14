@@ -9,7 +9,6 @@ import java.util.Set;
 public class Blockbuster {
 
     private Set<Product> products = new HashSet<>();
-    private Set<Product> blockBusters = new HashSet<>();
     private int monthlyRevenu;
     private static final int MIN_RENTED_DAY = 3;
     private static final int MAX_RENTED_DAY = 14;
@@ -28,9 +27,33 @@ public class Blockbuster {
         return counter / products.size();
     }
 
-    public Set<Product> getBestBlockbusters(){
+/*    public Set<Product> getBestBlockbusters(){
+        int averageRentTime = averageProduct();
         for (Product product : products) {
-            if(product.getHowManyTimesRent() > averageProduct()){
+            if(product.getHowManyTimesRent() > averageRentTime){
+                blockBusters.add(product);
+            }
+        }
+        return blockBusters;
+    }*/
+
+
+
+
+    private void setProductToBlockbuster(){
+        int averageRentTime = averageProduct();
+        for (Product product : products) {
+            if(product.getHowManyTimesRent() > averageRentTime){
+                product.setBlockbusterFavorite(true);
+            }
+        }
+    }
+
+    public Set<Product> getBestBlockbusters(){
+         Set<Product> blockBusters = new HashSet<>();
+        setProductToBlockbuster();
+        for (Product product : products) {
+            if(product.isBlockbusterFavorite()){
                 blockBusters.add(product);
             }
         }
@@ -42,9 +65,9 @@ public class Blockbuster {
     }
 
     public void buyProduct(Product product) throws Exception{
+        Set<Product> blockBusters = getBestBlockbusters();
         if(blockBusters.contains(product)){
             products.remove(product);
-            blockBusters.remove(product);
             monthlyRevenu += product.getOriginalPrice();
         }
         else {
@@ -53,7 +76,7 @@ public class Blockbuster {
     }
 
 
-    public boolean isValidRentTime(int day){
+    private boolean isValidRentTime(int day){
         return  (day >= MIN_RENTED_DAY && day <= MAX_RENTED_DAY) ;
     }
 

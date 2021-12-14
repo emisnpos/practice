@@ -51,11 +51,48 @@ public class Main {
         blockbuster.rentProduct(suits, 9);
         blockbuster.returnProduct(suits);
 
+        blockbuster.rentProduct(wow, 3);
+        blockbuster.returnProduct(wow);
+
+        blockbuster.rentProduct(wow, 11);
+        blockbuster.returnProduct(wow);
+
+        blockbuster.rentProduct(abba, 3);
+        blockbuster.returnProduct(abba);
+
+        blockbuster.rentProduct(iAmLegends, 8);
+        blockbuster.returnProduct(iAmLegends);
+
+        blockbuster.rentProduct(theBigBang, 7);
+        blockbuster.returnProduct(theBigBang);
+
+        blockbuster.rentProduct(suits, 9);
+        blockbuster.returnProduct(suits);
+
+        blockbuster.rentProduct(wow, 3);
+        blockbuster.returnProduct(wow);
+
+        blockbuster.rentProduct(wow, 11);
+        blockbuster.returnProduct(wow);
+
+        blockbuster.rentProduct(abba, 3);
+        blockbuster.returnProduct(abba);
+
+        blockbuster.rentProduct(iAmLegends, 8);
+        blockbuster.returnProduct(iAmLegends);
+
+        blockbuster.rentProduct(theBigBang, 7);
+        blockbuster.returnProduct(theBigBang);
+
+        blockbuster.rentProduct(suits, 9);
+        blockbuster.returnProduct(suits);
 
 
 
-        // blockbuster.betterVisualToSeeTheProducts();       //<------------ product list info
-        blockbuster.getBestBlockbusters();                   //<------------ this method return Set with best products
+
+
+        //blockbuster.betterVisualToSeeTheProducts();       //<------------ product list info
+        //System.out.println(blockbuster.getBestBlockbusters());                   //<------------ this method return Set with best products
 
 
 
@@ -64,6 +101,10 @@ public class Main {
         //System.out.println(blockbuster.getBestBlockbusters());
 
         System.out.println("This is all profit: " + blockbuster.getMonthlyRevenu());
+
+
+        blockbuster.betterVisualToSeeTheProducts();
+        System.out.println(blockbuster.getBestBlockbusters());
 
 
 

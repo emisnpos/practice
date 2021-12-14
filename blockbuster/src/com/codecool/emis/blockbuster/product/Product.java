@@ -12,6 +12,7 @@ public class Product {
     private ProductType productType;
     private int howManyTimesRent = 0;
     private boolean available = true;
+    private boolean blockbusterFavorite = false;
 
 
 
@@ -23,6 +24,14 @@ public class Product {
         this.dailyRentalCost = dailyRentalCost;
         this.originalPrice = originalPrice;
 
+    }
+
+    public void setBlockbusterFavorite(boolean blockbusterFavorite) {
+        this.blockbusterFavorite = blockbusterFavorite;
+    }
+
+    public boolean isBlockbusterFavorite() {
+        return blockbusterFavorite;
     }
 
     public int getOriginalPrice() {
@@ -45,7 +54,7 @@ public class Product {
         return dailyRentalCost;
     }
 
-    public Platform getPlatformReleaseTime(LocalDate localDate){
+    private Platform getPlatformReleaseTime(LocalDate localDate){
         if(localDate.getYear() < 2000){
             return Platform.VHS;
         }
@@ -55,11 +64,11 @@ public class Product {
         return Platform.BLUERAY;
     }
 
-    public boolean isMovieOrTvShow(){
+    private boolean isMovieOrTvShow(){
         return productType.equals(ProductType.MOVIE) || productType.equals(ProductType.TVSHOW);
     }
 
-    public Platform anotherPlatformSetter(LocalDate localDate){
+    private Platform anotherPlatformSetter(LocalDate localDate){
         if(isMovieOrTvShow()){
            return getPlatformReleaseTime(localDate);
         }
@@ -86,6 +95,7 @@ public class Product {
                 ", productType=" + productType +
                 ", howManyTimesRent=" + howManyTimesRent +
                 ", available=" + available +
+                ", blockbusterFavorite=" + blockbusterFavorite +
                 '}';
     }
 }
